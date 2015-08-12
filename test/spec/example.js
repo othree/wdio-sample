@@ -36,4 +36,15 @@ describe('DuckDuckGo', function () {
       
     title.should.equal(`${q} at DuckDuckGo`);
   });
+
+  it('Test Native Promise', function* () {
+    var p = new Promise(function (resolve) {
+      setTimeout(function () {
+        resolve('fulfilled');
+      }, 1000)
+    });
+    var result = yield p;
+      
+    result.should.equal('fulfilled');
+  });
 });
